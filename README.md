@@ -1,37 +1,37 @@
 
 ## ENDPOINTS USUARIO
 
-### Criar usuários
+##### Criar usuários
 POST http://localhost:8080/usuario
 
-### Listar todos os usuários
+##### Listar todos os usuários
 GET http://localhost:8080/usuario
 
-### Detalhar usuário específico
+##### Detalhar usuário específico
 GET http://localhost:8080/usuario/1
 
 
 ## ENDPOINTS ACESSO
 
-### Criar acessos
+##### Criar acessos
 POST http://localhost:8080/acesso
 
-### Listar todos os acessos
+##### Listar todos os acessos
 GET http://localhost:8080/acesso
 
-### Listar acessos por usuário específico
+##### Listar acessos por usuário específico
 GET http://localhost:8080/acesso/usuario/1
 
 
 ## ENDPOINTS CHECKIN
 
-### Criar checkins
+##### Criar checkins
 POST http://localhost:8080/checkin
 
-### Listar todos os checkins
+##### Listar todos os checkins
 GET http://localhost:8080/checkin
 
-### Listar checkins por usuário específico  
+##### Listar checkins por usuário específico  
 GET http://localhost:8080/checkin/usuario/1
 
 ### Buscar checkin de hoje de um usuário específico
@@ -40,19 +40,19 @@ GET http://localhost:8080/checkin/hoje/1
 
 
 ## ADICIONANDO DADOS NAS TABELAS DO DATABASE "second_nature"
-### USUARIO FICTICIO
+##### USUARIO FICTICIO
 {
     "nome": "{{$randomFirstName}} {{$randomLastName}}",
     "email": "{{$randomEmail}}",
     "senha": "11111111"
 }
 
-### ACESSO FICTICIOS
+##### ACESSO FICTICIOS
 {
     "id_usuario": 1
 }
 
-### CHECKIN FICTICIO
+##### CHECKIN FICTICIO
 {
     "id_usuario": 1,
     "humor": "ansioso",
