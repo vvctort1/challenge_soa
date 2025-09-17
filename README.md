@@ -7,9 +7,14 @@ POST http://localhost:8080/usuario
 ##### Listar todos os usuários
 GET http://localhost:8080/usuario
 
-##### Detalhar usuário específico
-GET http://localhost:8080/usuario/1
+##### Mostrar usuário específico
+GET http://localhost:8080/usuario/{id_usuario}
 
+##### Alterar dados do usuário
+PUT http://localhost:8080/
+
+##### Deletar usuário
+DELETE http://localhost:8080/usuario/{id_usuario}
 
 ## ENDPOINTS ACESSO
 
@@ -20,7 +25,7 @@ POST http://localhost:8080/acesso
 GET http://localhost:8080/acesso
 
 ##### Listar acessos por usuário específico
-GET http://localhost:8080/acesso/usuario/1
+GET http://localhost:8080/acesso/usuario/{id_usuario}
 
 
 ## ENDPOINTS CHECKIN
@@ -32,10 +37,10 @@ POST http://localhost:8080/checkin
 GET http://localhost:8080/checkin
 
 ##### Listar checkins por usuário específico  
-GET http://localhost:8080/checkin/usuario/1
+GET http://localhost:8080/checkin/usuario/{id_usuario}
 
 ### Buscar checkin de hoje de um usuário específico
-GET http://localhost:8080/checkin/hoje/1
+GET http://localhost:8080/checkin/hoje/{id_usuario}
 
 
 
