@@ -22,13 +22,13 @@ public class Acesso {
     @Column(name="id_usuario", nullable = false)
     Long id_usuario;
 
-    @Column(name="data_acesso", nullable = false)
-    LocalDateTime data_acesso;
+    @Column(name="data", nullable = false)
+    LocalDateTime data;
 
 
     public Acesso(DadosCadastroAcessoDTO dados) {
         this.id_usuario = dados.id_usuario();
-        this.data_acesso = LocalDateTime.now();
+        this.data = LocalDateTime.now();
     }
 
 

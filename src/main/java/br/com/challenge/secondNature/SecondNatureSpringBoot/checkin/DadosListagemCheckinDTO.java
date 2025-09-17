@@ -11,11 +11,11 @@ public record DadosListagemCheckinDTO(
         String humor,
         Impulsividade impulsividade_nivel,
         @JsonFormat (pattern="dd/MM/yyyy HH:mm:ss")
-        LocalDateTime data_checkin
+        LocalDateTime data
 
 ) {
 
     public DadosListagemCheckinDTO(Checkin checkin){
-        this(checkin.getId_checkin(), checkin.getId_usuario(), checkin.getHumor(),checkin.getImpulsividade_nivel(),checkin.getData_checkin());
+        this(checkin.getId_checkin(), checkin.getId_usuario(), checkin.getHumor(),checkin.getImpulsividade_nivel(),checkin.getData());
     }
 }

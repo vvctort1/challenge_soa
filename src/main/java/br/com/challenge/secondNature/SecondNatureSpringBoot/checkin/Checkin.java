@@ -25,8 +25,8 @@ public class Checkin {
     @Column(name = "humor", nullable = false)
     String humor;
 
-    @Column(name = "data_checkin", nullable = false)
-    LocalDateTime data_checkin;
+    @Column(name = "data", nullable = false)
+    LocalDateTime data;
 
     @Enumerated(EnumType.STRING)
     Impulsividade impulsividade_nivel;
@@ -34,7 +34,7 @@ public class Checkin {
     public Checkin(DadosCadastroCheckinDTO dados){
         this.id_usuario = dados.id_usuario();
         this.humor = dados.humor();
-        this.data_checkin = LocalDateTime.now();
+        this.data = LocalDateTime.now();
         this.impulsividade_nivel = dados.impulsividade_nivel();
     }
 }

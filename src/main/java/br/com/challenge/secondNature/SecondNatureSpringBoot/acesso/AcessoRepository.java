@@ -9,16 +9,19 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface AcessoRepository extends JpaRepository<Acesso, Long> {
+
+    // Método básico do JpaRepository - deve funcionar
     Page<Acesso> findAll(Pageable paginacao);
 
-    // CORRIGIDO: Usando @Query para mapear corretamente o campo id_usuario
-    @Query("SELECT a FROM Acesso a WHERE a.id_usuario = :id_usuario ORDER BY a.data_acesso DESC")
+    // Query específica para buscar por usuário
+    @Query("SELECT a FROM Acesso a WHERE a.id_usuario = :id_usuario ORDER BY a.data DESC")
     Page<Acesso> findByIdUsuarioOrderByDataAcessoDesc(@Param("id_usuario") Long id_usuario, Pageable paginacao);
 
-    @Query("SELECT a FROM Acesso a WHERE DATE(a.data_acesso) = CURRENT_DATE")
+    // Query para buscar acessos de hoje - CORRIGIDA
+    @Query(value = "SELECT * FROM acessos WHERE DATE(data) = CURDATE()", nativeQuery = true)
     List<Acesso> findAcessosHoje();
 
-    // CORRIGIDO: Usando @Query para contar acessos por usuário
+    // Query para contar acessos por usuário
     @Query("SELECT COUNT(a) FROM Acesso a WHERE a.id_usuario = :id_usuario")
     Long countByIdUsuario(@Param("id_usuario") Long id_usuario);
 }

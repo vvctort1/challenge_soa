@@ -3,7 +3,7 @@ CREATE TABLE checkins (
     id_usuario BIGINT NOT NULL,
     humor VARCHAR(255) NOT NULL,
     impulsividade_nivel VARCHAR(50),
-    data_checkin DATETIME NOT NULL,
+    data DATETIME NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
         ON DELETE CASCADE
         ON UPDATE CASCADE

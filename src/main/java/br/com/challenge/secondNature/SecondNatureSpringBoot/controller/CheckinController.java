@@ -48,7 +48,7 @@ public class CheckinController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemCheckinDTO>> listarCheckins(@PageableDefault(size = 10, sort = {"data_checkin"})Pageable paginacao){
+    public ResponseEntity<Page<DadosListagemCheckinDTO>> listarCheckins(@PageableDefault(size = 10, sort = {"data"})Pageable paginacao){
         var page = repository.findAll(paginacao).map(DadosListagemCheckinDTO::new);
         return ResponseEntity.ok(page);
     }
