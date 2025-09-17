@@ -11,7 +11,7 @@ GET http://localhost:8080/usuario
 GET http://localhost:8080/usuario/{id_usuario}
 
 ##### Alterar dados do usuário
-PUT http://localhost:8080/
+PUT http://localhost:8080/usuario
 
 ##### Deletar usuário
 DELETE http://localhost:8080/usuario/{id_usuario}
