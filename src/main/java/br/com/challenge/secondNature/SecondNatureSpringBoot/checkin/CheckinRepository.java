@@ -11,7 +11,9 @@ import java.util.Optional;
 public interface CheckinRepository extends JpaRepository<Checkin, Long> {
     Page<Checkin> findAll(Pageable paginacao);
 
-    Page<Checkin> findByIdUsuarioOrderByDataCheckinDesc(Long id_usuario, Pageable paginacao);
+    // CORRIGIDO: Usando @Query para mapear corretamente o campo id_usuario
+    @Query("SELECT c FROM Checkin c WHERE c.id_usuario = :id_usuario ORDER BY c.data_checkin DESC")
+    Page<Checkin> findByIdUsuarioOrderByDataCheckinDesc(@Param("id_usuario") Long id_usuario, Pageable paginacao);
 
     @Query("SELECT c FROM Checkin c WHERE c.id_usuario = :id_usuario AND DATE(c.data_checkin) = CURRENT_DATE")
     Optional<Checkin> findCheckinHoje(@Param("id_usuario") Long id_usuario);
