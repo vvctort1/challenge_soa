@@ -60,7 +60,7 @@ GET http://localhost:8080/checkin/hoje/{id_usuario}
 
 
 
-## ADICIONANDO DADOS NAS TABELAS DO DATABASE "second_nature"
+## ADICIONANDO DADOS NAS TABELAS
 ##### USUARIO FICTICIO
 {
     "nome": "{{$randomFirstName}} {{$randomLastName}}",
