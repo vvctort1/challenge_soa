@@ -57,19 +57,18 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/{id_usuario}")
     @Transactional
     public ResponseEntity<DadosListagemUsuarioDTO> atualizarUsuario(
+            @PathVariable Long id_usuario,
             @RequestBody @Valid DadosAtualizacaoUsuarioDTO dados) {
 
-        try {
-            Usuario usuario = repository.getReferenceById(dados.id_usuario());
-            usuario.atualizarInformacoes(dados);
-
-            return ResponseEntity.ok(new DadosListagemUsuarioDTO(usuario));
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+        return repository.findById(id_usuario)
+                .map(usuario -> {
+                    usuario.atualizarInformacoes(dados);
+                    return ResponseEntity.ok(new DadosListagemUsuarioDTO(usuario));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id_usuario}")

@@ -1,5 +1,6 @@
 package br.com.challenge.secondNature.SecondNatureSpringBoot.acesso;
 
+import br.com.challenge.secondNature.SecondNatureSpringBoot.usuario.Usuario;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.*;
@@ -11,25 +12,28 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(of = "id_acesso")
+
 public class Acesso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id_acesso;
+    private Long id_acesso;
 
-    @Column(name="id_usuario", nullable = false)
-    Long id_usuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
-    @Column(name="data", nullable = false)
-    LocalDateTime data;
+    private LocalDateTime data;
 
+    public Acesso() {}
 
-    public Acesso(DadosCadastroAcessoDTO dados) {
-        this.id_usuario = dados.id_usuario();
-        this.data = LocalDateTime.now();
+    public Acesso(Usuario usuario, LocalDateTime data) {
+        this.usuario = usuario;
+        this.data = (data != null ? data : LocalDateTime.now());
     }
 
-
+    public Long getId_acesso() { return id_acesso; }
+    public Long getId_usuario() { return usuario.getId_usuario(); }
+    public LocalDateTime getData() { return data; }
 }
