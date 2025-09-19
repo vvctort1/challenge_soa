@@ -10,6 +10,8 @@
 
 ---
 
+<br>
+
 # Passo a passo
 
 1. Clonar o projeto;
@@ -18,10 +20,15 @@
 4. Rodar o projeto;
 5. Realizar os testes utilizando comandos sql ou plataformas como Postman.
 
+
 ---
 
-# ENDPOINTS
-## Usuário
+<br>
+
+# Endpoints
+<h3 align='center'>
+Usuário
+</h3>
 
 <h3 align="center">
  Criar usuários
@@ -33,7 +40,6 @@ POST http://localhost:8080/usuario
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/980ccf17-10b4-42ab-b16d-455f3c811a94" />
 </p>
 
----
 
 <h3 align="center">
 Listar todos os usuários
@@ -45,7 +51,6 @@ GET http://localhost:8080/usuario
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/26612c36-70e6-4630-9c8b-16629495bdc7" />
 </p>
 
----
 
 <h3 align="center">
 Mostrar usuário específico
@@ -57,7 +62,6 @@ GET http://localhost:8080/usuario/{id_usuario}
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/90fd2f73-d8a4-4ace-ba0b-faea45a6818d" />
 </p>
 
----
 
 <h3 align="center">
 Alterar dados do usuário
@@ -69,7 +73,6 @@ PUT http://localhost:8080/usuario/{id_usuario}
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/5e017b25-31d1-49c9-b6be-6a53de1962bc" />
 </p>
 
----
 
 <h3 align="center">
 Deletar usuário
@@ -83,7 +86,9 @@ DELETE http://localhost:8080/usuario/{id_usuario}
 
 ---
 
-## Acesso (logs)
+<h3 align='center'>
+Acessos (logs)
+</h3>
 
 <h3 align="center">
 Criar acessos
@@ -95,7 +100,6 @@ POST http://localhost:8080/acesso/usuario/{id_usuario}
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/e9a7e87f-596a-428e-ab11-e82c5f7e81ef" />
 </p>
 
----
 
 <h3 align="center">
 Listar todos os acessos
@@ -104,7 +108,6 @@ Listar todos os acessos
 GET http://localhost:8080/acesso
 </p>
 
----
 
 <h3 align="center">
 Listar acessos por usuário específico
@@ -118,7 +121,10 @@ GET http://localhost:8080/acesso/usuario/{id_usuario}
 
 ---
 
-## Check-ins Diários
+
+<h3 align="center">
+Check-ins Diários
+</h3>
 
 <h3 align="center">
 Criar checkins
@@ -130,7 +136,6 @@ POST http://localhost:8080/checkin
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/08c0e875-01d5-404b-beb4-1bf6a005d69e" />
 </p>
 
----
 
 <h3 align="center">
 Listar todos os checkins
@@ -142,7 +147,6 @@ GET http://localhost:8080/checkin
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/b2be004e-6f15-439a-85a6-7f9b393287dd" />
 </p>
 
----
 
 <h3 align="center">
 Listar checkins por usuário específico  
@@ -154,7 +158,6 @@ GET http://localhost:8080/checkin/usuario/{id_usuario}
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/d3c456d8-f2eb-4a0c-bc40-0d16ed7aab13" />
 </p>
 
----
 
 <h3 align="center">
 Buscar checkin de hoje de um usuário específico
@@ -170,6 +173,7 @@ GET http://localhost:8080/checkin/hoje/{id_usuario}
 <h5 align="center">
 Usuário Fictício
 </h5>
+
 ```json
 {
     "nome": "{{$randomFirstName}} {{$randomLastName}}",
@@ -177,17 +181,21 @@ Usuário Fictício
     "senha": "11111111"
 }
 ```
+
 <h5 align="center">
 Acesso Fictício
 </h5>
+
 ```json
 {
     "id_usuario": 1
 }
 ```
+
 <h5 align="center">
 Checkin Fictício
 </h5>
+
 ```json
 {
     "id_usuario": 1,
@@ -195,6 +203,7 @@ Checkin Fictício
     "impulsividade_nivel": "ALTO"
 }
 ```
+
 <br>
 
 ## Diagramas
