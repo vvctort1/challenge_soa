@@ -55,7 +55,7 @@ GET http://localhost:8080/checkin
 ##### Listar checkins por usuário específico  
 GET http://localhost:8080/checkin/usuario/{id_usuario}
 
-### Buscar checkin de hoje de um usuário específico
+#### Buscar checkin de hoje de um usuário específico
 GET http://localhost:8080/checkin/hoje/{id_usuario}
 
 
