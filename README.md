@@ -229,7 +229,7 @@ Entidade-Relacionamento
 </p>
 
 <h3 align='center'>
-Camadas
+Arquitetura
 </h3>
 <p align='center'>
 <img width="939" height="303" alt="image" src="https://github.com/user-attachments/assets/5620216e-f549-4337-b804-204c55e645e7" />
