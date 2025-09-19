@@ -29,7 +29,7 @@ GET http://localhost:8080/usuario
 GET http://localhost:8080/usuario/{id_usuario}
 
 ##### Alterar dados do usuário
-PUT http://localhost:8080/usuario
+PUT http://localhost:8080/usuario/{id_usuario}
 
 ##### Deletar usuário
 DELETE http://localhost:8080/usuario/{id_usuario}
@@ -38,7 +38,7 @@ DELETE http://localhost:8080/usuario/{id_usuario}
 ## ENDPOINTS ACESSO
 
 ##### Criar acessos
-POST http://localhost:8080/acesso
+POST http://localhost:8080/acesso/usuario/{id_usuario}
 
 ##### Listar todos os acessos
 GET http://localhost:8080/acesso
