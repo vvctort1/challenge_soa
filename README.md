@@ -8,6 +8,13 @@ A arquitetura técnica utiliza Java 17+ como linguagem principal, com Spring Boo
 
 Todas as APIs seguem o padrão RESTful com endpoints intuitivos, implementando paginação nativa para otimização de performance em listagens extensas. O sistema inclui validações que previnem múltiplos check-ins no mesmo dia, verificam a ativação de usuários antes de registros e possui tratamento de erros e exceções. Os dados são organizados através do padrão DTO (Data Transfer Objects) utilizando Records do Java, garantindo transferência segura entre as camadas da aplicação. O projeto é uma solução moderna para ajudar usuários a enfrentar seus impulsos em apostas com uma ferramenta digital pensada na saúde mental e conscientização.
 
+## Passo a passo
+1. Clonar o projeto;
+2. Configurar os dados de conexão com o MySql no arquivo application.properties;
+3. Abrir o MySql Workbench e criar o banco de dados;
+4. Rodar o projeto;
+5. Realizar os testes utilizando comandos sql ou plataformas como Postman.
+
 ## ENDPOINTS USUARIO
 
 ##### Criar usuários
