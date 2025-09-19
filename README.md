@@ -168,11 +168,13 @@ GET http://localhost:8080/checkin/hoje/{id_usuario}
 
 ---
 
-## ADICIONANDO DADOS NAS TABELAS
+<br>
 
-<h5 align="center">
+# Adicionando Dados nas Tabelas
+
+<h3 align="center">
 Usuário Fictício
-</h5>
+</h3>
 
 ```json
 {
@@ -182,19 +184,21 @@ Usuário Fictício
 }
 ```
 
-<h5 align="center">
+<br>
+
+<h3 align="center">
 Acesso Fictício
-</h5>
+</h3>
+<br>
+<p align='center'>
+Método POST - <a> http://localhost:8080/acesso/usuario/1 </a>
+</p>
+ 
+<br>
 
-```json
-{
-    "id_usuario": 1
-}
-```
-
-<h5 align="center">
+<h3 align="center">
 Checkin Fictício
-</h5>
+</h3>
 
 ```json
 {
@@ -204,9 +208,11 @@ Checkin Fictício
 }
 ```
 
+---
+
 <br>
 
-## Diagramas
+# Diagramas
 
 <h3 align="center">
 Entidade-Relacionamento
