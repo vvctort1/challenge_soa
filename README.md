@@ -7,14 +7,14 @@ O projeto oferece funcionalidades de gestão de usuários com cadastro, atualiza
 A arquitetura técnica utiliza Java 17+ como linguagem principal, com Spring Boot 3.x fornecendo o framework base para desenvolvimento da API REST. A persistência de dados é gerenciada através do Spring Data JPA e Hibernate, conectando-se a um banco MySQL para armazenamento estruturado das informações. O Flyway controla as migrações do banco de dados, garantindo versionamento adequado das mudanças estruturais. Para aumentar a produtividade do desenvolvimento, foram integradas bibliotecas como Lombok para redução de código boilerplate, Jakarta Bean Validation para validações declarativas e Jackson para processamento JSON automático.
 
 Todas as APIs seguem o padrão RESTful com endpoints intuitivos, implementando paginação nativa para otimização de performance em listagens extensas. O sistema inclui validações que previnem múltiplos check-ins no mesmo dia, verificam a ativação de usuários antes de registros e possui tratamento de erros e exceções. Os dados são organizados através do padrão DTO (Data Transfer Objects) utilizando Records do Java, garantindo transferência segura entre as camadas da aplicação. O projeto é uma solução moderna para ajudar usuários a enfrentar seus impulsos em apostas com uma ferramenta digital pensada na saúde mental e conscientização.
-
+<br><br>
 ## Passo a passo
 1. Clonar o projeto;
 2. Configurar os dados de conexão com o MySql no arquivo application.properties;
 3. Abrir o MySql Workbench e criar o banco de dados;
 4. Rodar o projeto;
 5. Realizar os testes utilizando comandos sql ou plataformas como Postman.
-
+<br><br>
 ## ENDPOINTS USUARIO
 
 ##### Criar usuários
@@ -32,6 +32,7 @@ PUT http://localhost:8080/usuario
 ##### Deletar usuário
 DELETE http://localhost:8080/usuario/{id_usuario}
 
+<br><br>
 ## ENDPOINTS ACESSO
 
 ##### Criar acessos
@@ -43,7 +44,7 @@ GET http://localhost:8080/acesso
 ##### Listar acessos por usuário específico
 GET http://localhost:8080/acesso/usuario/{id_usuario}
 
-
+<br><br>
 ## ENDPOINTS CHECKIN
 
 ##### Criar checkins
@@ -58,7 +59,7 @@ GET http://localhost:8080/checkin/usuario/{id_usuario}
 #### Buscar checkin de hoje de um usuário específico
 GET http://localhost:8080/checkin/hoje/{id_usuario}
 
-
+<br><br>
 
 ## ADICIONANDO DADOS NAS TABELAS
 ##### USUARIO FICTICIO
