@@ -1,4 +1,6 @@
-# Second Nature
+<h1 align='center'>
+Second Nature
+</h1>
 
 <p align='justify'>&nbsp;&nbsp;&nbsp;&nbsp;O Second Nature é uma aplicação web desenvolvida em Spring Boot que funciona como uma plataforma de monitoramento e acompanhamento do bem-estar mental e emocional de usuários participantes de apostas. O sistema permite que indivíduos registrem e acompanhem seu estado emocional, humor e níveis de impulsividade através de check-ins diários, além de monitorar padrões de acesso à plataforma. A aplicação foi construída utilizando Spring Data JPA para persistência no MySQL e Flyway para controle de versão do banco de dados.</p>
 
@@ -26,6 +28,7 @@
 <br>
 
 # Endpoints
+
 <h3 align='center'>
 Usuário
 </h3>
@@ -170,7 +173,9 @@ GET http://localhost:8080/checkin/hoje/{id_usuario}
 
 <br>
 
-# Adicionando Dados nas Tabelas
+<h1 align='center'>
+Adicionando Dados nas Tabelas
+</h1>
 
 <h3 align="center">
 Usuário Fictício
@@ -212,7 +217,9 @@ Checkin Fictício
 
 <br>
 
-# Diagramas
+<h1 align='center'>
+Diagramas
+</h1>
 
 <h3 align="center">
 Entidade-Relacionamento
