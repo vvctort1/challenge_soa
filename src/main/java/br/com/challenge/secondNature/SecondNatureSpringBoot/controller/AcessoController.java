@@ -26,22 +26,27 @@ public class AcessoController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @PostMapping
+    @PostMapping("/usuario/{id_usuario}")
     @Transactional
-    public ResponseEntity<DadosListagemAcessoDTO> cadastrarAcesso(@RequestBody @Valid DadosCadastroAcessoDTO dados){
-        try{
-            var usuario = usuarioRepository.getReferenceById(dados.id_usuario());
-            if (!usuario.getAtivo()){
+    public ResponseEntity<DadosListagemAcessoDTO> cadastrarAcesso(
+            @PathVariable Long id_usuario,
+            @RequestBody @Valid DadosCadastroAcessoDTO dados) {
+        try {
+            var usuario = usuarioRepository.findById(id_usuario)
+                    .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+            if (!usuario.getAtivo()) {
                 return ResponseEntity.badRequest().build();
             }
+
+            var acesso = new Acesso(usuario, dados.data());
+            repository.save(acesso);
+
+            return ResponseEntity.ok(new DadosListagemAcessoDTO(acesso));
         } catch(Exception e) {
+            e.printStackTrace();
             return ResponseEntity.badRequest().build();
         }
-
-        var acesso = new Acesso(dados);
-        repository.save(acesso);
-
-        return ResponseEntity.ok(new DadosListagemAcessoDTO(acesso));
     }
 
 

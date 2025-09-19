@@ -6,9 +6,6 @@ import java.time.LocalDateTime;
 
 public record DadosCadastroAcessoDTO(
 
-        @NotNull
-        Long id_usuario,
-
         LocalDateTime data
 
 ) {

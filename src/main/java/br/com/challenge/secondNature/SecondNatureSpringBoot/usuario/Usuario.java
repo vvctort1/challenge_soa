@@ -1,7 +1,6 @@
 package br.com.challenge.secondNature.SecondNatureSpringBoot.usuario;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.*;
 
 @Table(name="usuarios")
@@ -15,19 +14,19 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id_usuario;
+    private Long id_usuario;
 
     @Column(nullable = false, length = 100)
-    String nome;
+    private String nome;
 
-    @Column(nullable = false,unique = true,length = 100)
-    String email;
-
-    @Column(nullable = false)
-    String senha;
+    @Column(nullable = false, unique = true, length = 100)
+    private String email;
 
     @Column(nullable = false)
-    Boolean ativo = true;
+    private String senha;
+
+    @Column(nullable = false)
+    private Boolean ativo = true;
 
     public Usuario(DadosCadastroUsuarioDTO dados) {
         this.nome = dados.nome();
@@ -36,21 +35,19 @@ public class Usuario {
         this.ativo = true;
     }
 
-    public void atualizarInformacoes(DadosAtualizacaoUsuarioDTO dados){
-        if(dados.nome() != null && !dados.nome().trim().isEmpty()){
+    public void atualizarInformacoes(DadosAtualizacaoUsuarioDTO dados) {
+        if (dados.nome() != null && !dados.nome().trim().isEmpty()) {
             this.nome = dados.nome();
         }
-
-        if(dados.email() != null && !dados.email().trim().isEmpty()){
+        if (dados.email() != null && !dados.email().trim().isEmpty()) {
             this.email = dados.email();
         }
-
-        if(dados.senha() != null && !dados.senha().trim().isEmpty()){
+        if (dados.senha() != null && !dados.senha().trim().isEmpty()) {
             this.senha = dados.senha();
         }
     }
 
-    public void excluir(){
+    public void excluir() {
         this.ativo = false;
     }
 }
