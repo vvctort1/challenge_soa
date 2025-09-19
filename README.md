@@ -7,7 +7,8 @@
 <p align='justify'>&nbsp;&nbsp;&nbsp;&nbsp;A arquitetura técnica utiliza Java 17+ como linguagem principal, com Spring Boot 3.x fornecendo o framework base para desenvolvimento da API REST. A persistência de dados é gerenciada através do Spring Data JPA e Hibernate, conectando-se a um banco MySQL para armazenamento estruturado das informações. O Flyway controla as migrações do banco de dados, garantindo versionamento adequado das mudanças estruturais. Para aumentar a produtividade do desenvolvimento, foram integradas bibliotecas como Lombok para redução de código boilerplate, Jakarta Bean Validation para validações declarativas e Jackson para processamento JSON automático.</p>
 
 <p align='justify'>&nbsp;&nbsp;&nbsp;&nbsp;Todas as APIs seguem o padrão RESTful com endpoints intuitivos, implementando paginação nativa para otimização de performance em listagens extensas. O sistema inclui validações que previnem múltiplos check-ins no mesmo dia, verificam a ativação de usuários antes de registros e possui tratamento de erros e exceções. Os dados são organizados através do padrão DTO (Data Transfer Objects) utilizando Records do Java, garantindo transferência segura entre as camadas da aplicação. O projeto é uma solução moderna para ajudar usuários a enfrentar seus impulsos em apostas com uma ferramenta digital pensada na saúde mental e conscientização.</p>
-<br><br>
+
+---
 
 ## Passo a passo
 
@@ -16,69 +17,95 @@
 3. Abrir o MySql Workbench e criar o banco de dados;
 4. Rodar o projeto;
 5. Realizar os testes utilizando comandos sql ou plataformas como Postman.
-<br><br>
+
+---
+
 ## ENDPOINTS USUARIO
 
-##### Criar usuários
+### Criar usuários
 POST http://localhost:8080/usuario
 
-##### Listar todos os usuários
+---
+
+### Listar todos os usuários
 GET http://localhost:8080/usuario
 
-##### Mostrar usuário específico
+---
+
+### Mostrar usuário específico
 GET http://localhost:8080/usuario/{id_usuario}
 
-##### Alterar dados do usuário
+---
+
+### Alterar dados do usuário
 PUT http://localhost:8080/usuario/{id_usuario}
 
-##### Deletar usuário
+---
+
+### Deletar usuário
 DELETE http://localhost:8080/usuario/{id_usuario}
 
-<br><br>
+---
+
 ## ENDPOINTS ACESSO
 
-##### Criar acessos
+### Criar acessos
 POST http://localhost:8080/acesso/usuario/{id_usuario}
 
-##### Listar todos os acessos
+---
+
+### Listar todos os acessos
 GET http://localhost:8080/acesso
 
-##### Listar acessos por usuário específico
+---
+
+### Listar acessos por usuário específico
 GET http://localhost:8080/acesso/usuario/{id_usuario}
 
-<br><br>
+---
+
 ## ENDPOINTS CHECKIN
 
-##### Criar checkins
+### Criar checkins
 POST http://localhost:8080/checkin
 
-##### Listar todos os checkins
+---
+
+### Listar todos os checkins
 GET http://localhost:8080/checkin
 
-##### Listar checkins por usuário específico  
+---
+
+### Listar checkins por usuário específico  
 GET http://localhost:8080/checkin/usuario/{id_usuario}
 
-#### Buscar checkin de hoje de um usuário específico
+---
+
+### Buscar checkin de hoje de um usuário específico
 GET http://localhost:8080/checkin/hoje/{id_usuario}
 
-<br><br>
+---
 
 ## ADICIONANDO DADOS NAS TABELAS
 ##### USUARIO FICTICIO
+```json
 {
     "nome": "{{$randomFirstName}} {{$randomLastName}}",
     "email": "{{$randomEmail}}",
     "senha": "11111111"
 }
-
+```
 ##### ACESSO FICTICIOS
+```json
 {
     "id_usuario": 1
 }
-
+```
 ##### CHECKIN FICTICIO
+```json
 {
     "id_usuario": 1,
     "humor": "ansioso",
     "impulsividade_nivel": "ALTO"
 }
+```
