@@ -220,3 +220,10 @@ Entidade-Relacionamento
 <p align='center'>
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/8da8ebd3-8e6e-4db3-80f0-eda810ce16d8" />
 </p>
+
+<h3 align='center'>
+Camadas
+</h3>
+<p align='center'>
+<img width="939" height="303" alt="image" src="https://github.com/user-attachments/assets/5620216e-f549-4337-b804-204c55e645e7" />
+</p>
