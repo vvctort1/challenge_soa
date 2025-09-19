@@ -22,92 +22,153 @@
 
 ## ENDPOINTS USUARIO
 
-### Criar usuários
+<h3 align="center">
+ Criar usuários
+</h3>
+<p align="center">
 POST http://localhost:8080/usuario
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/980ccf17-10b4-42ab-b16d-455f3c811a94" />
 </p>
+
 ---
 
-### Listar todos os usuários
+<h3 align="center">
+Listar todos os usuários
+</h3>
+<p align="center">
 GET http://localhost:8080/usuario
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/26612c36-70e6-4630-9c8b-16629495bdc7" />
 </p>
+
 ---
 
-### Mostrar usuário específico
+<h3 align="center">
+Mostrar usuário específico
+</h3>
+<p align="center">
 GET http://localhost:8080/usuario/{id_usuario}
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/90fd2f73-d8a4-4ace-ba0b-faea45a6818d" />
 </p>
+
 ---
 
-### Alterar dados do usuário
+<h3 align="center">
+Alterar dados do usuário
+</h3>
+<p align="center">
 PUT http://localhost:8080/usuario/{id_usuario}
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/5e017b25-31d1-49c9-b6be-6a53de1962bc" />
 </p>
+
 ---
 
-### Deletar usuário
+<h3 align="center">
+Deletar usuário
+</h3>
+<p align="center">
 DELETE http://localhost:8080/usuario/{id_usuario}
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/3fec6f18-4657-46f9-a08e-ad4258c6ebb4" />
 </p>
+
 ---
 
 ## ENDPOINTS ACESSO
 
-### Criar acessos
+<h3 align="center">
+Criar acessos
+</h3>
+<p align="center">
 POST http://localhost:8080/acesso/usuario/{id_usuario}
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/e9a7e87f-596a-428e-ab11-e82c5f7e81ef" />
 </p>
+
 ---
 
-### Listar todos os acessos
+<h3 align="center">
+Listar todos os acessos
+</h3>
+<p align="center">
 GET http://localhost:8080/acesso
+</p>
 
 ---
 
-### Listar acessos por usuário específico
+<h3 align="center">
+Listar acessos por usuário específico
+</h3>
+<p align="center">
 GET http://localhost:8080/acesso/usuario/{id_usuario}
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/98bbb743-e193-41de-8dbf-762d4989074e" />
 </p>
+
 ---
 
 ## ENDPOINTS CHECKIN
 
-### Criar checkins
+<h3 align="center">
+Criar checkins
+</h3>
+<p align="center">
 POST http://localhost:8080/checkin
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/08c0e875-01d5-404b-beb4-1bf6a005d69e" />
 </p>
+
 ---
 
-### Listar todos os checkins
+<h3 align="center">
+Listar todos os checkins
+</h3>
+<p align="center">
 GET http://localhost:8080/checkin
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/b2be004e-6f15-439a-85a6-7f9b393287dd" />
 </p>
+
 ---
 
-### Listar checkins por usuário específico  
+<h3 align="center">
+Listar checkins por usuário específico  
+</h3>
+<p align="center">
 GET http://localhost:8080/checkin/usuario/{id_usuario}
+</p>
 <p align="center">
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/d3c456d8-f2eb-4a0c-bc40-0d16ed7aab13" />
 </p>
+
 ---
 
-### Buscar checkin de hoje de um usuário específico
+<h3 align="center">
+Buscar checkin de hoje de um usuário específico
+</h3>
+<p align="center">
 GET http://localhost:8080/checkin/hoje/{id_usuario}
+</p>
 
 ---
 
 ## ADICIONANDO DADOS NAS TABELAS
-##### USUARIO FICTICIO
+
+<h5 align="center">
+Usuário Fictício
+</h5>
 ```json
 {
     "nome": "{{$randomFirstName}} {{$randomLastName}}",
@@ -115,13 +176,17 @@ GET http://localhost:8080/checkin/hoje/{id_usuario}
     "senha": "11111111"
 }
 ```
-##### ACESSO FICTICIOS
+<h5 align="center">
+Acesso Fictício
+</h5>
 ```json
 {
     "id_usuario": 1
 }
 ```
-##### CHECKIN FICTICIO
+<h5 align="center">
+Checkin Fictício
+</h5>
 ```json
 {
     "id_usuario": 1,
@@ -129,11 +194,13 @@ GET http://localhost:8080/checkin/hoje/{id_usuario}
     "impulsividade_nivel": "ALTO"
 }
 ```
-
+<br>
 
 ## Diagramas
 
-### Entidade-Relacionamento
+<h3 align="center">
+Entidade-Relacionamento
+</h3>
 <p align='center'>
 <img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/8da8ebd3-8e6e-4db3-80f0-eda810ce16d8" />
 </p>
