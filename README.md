@@ -25,25 +25,35 @@
 ### Criar usuários
 POST http://localhost:8080/usuario
 
+<img width="1092" height="550" alt="image" src="https://github.com/user-attachments/assets/980ccf17-10b4-42ab-b16d-455f3c811a94" />
+
 ---
 
 ### Listar todos os usuários
 GET http://localhost:8080/usuario
+
+<img width="1115" height="917" alt="image" src="https://github.com/user-attachments/assets/26612c36-70e6-4630-9c8b-16629495bdc7" />
 
 ---
 
 ### Mostrar usuário específico
 GET http://localhost:8080/usuario/{id_usuario}
 
+<img width="1087" height="550" alt="image" src="https://github.com/user-attachments/assets/90fd2f73-d8a4-4ace-ba0b-faea45a6818d" />
+
 ---
 
 ### Alterar dados do usuário
 PUT http://localhost:8080/usuario/{id_usuario}
 
+<img width="1104" height="517" alt="image" src="https://github.com/user-attachments/assets/5e017b25-31d1-49c9-b6be-6a53de1962bc" />
+
 ---
 
 ### Deletar usuário
 DELETE http://localhost:8080/usuario/{id_usuario}
+
+<img width="1107" height="463" alt="image" src="https://github.com/user-attachments/assets/3fec6f18-4657-46f9-a08e-ad4258c6ebb4" />
 
 ---
 
@@ -51,6 +61,8 @@ DELETE http://localhost:8080/usuario/{id_usuario}
 
 ### Criar acessos
 POST http://localhost:8080/acesso/usuario/{id_usuario}
+
+<img width="1112" height="519" alt="image" src="https://github.com/user-attachments/assets/e9a7e87f-596a-428e-ab11-e82c5f7e81ef" />
 
 ---
 
@@ -62,6 +74,8 @@ GET http://localhost:8080/acesso
 ### Listar acessos por usuário específico
 GET http://localhost:8080/acesso/usuario/{id_usuario}
 
+<img width="1106" height="517" alt="image" src="https://github.com/user-attachments/assets/98bbb743-e193-41de-8dbf-762d4989074e" />
+
 ---
 
 ## ENDPOINTS CHECKIN
@@ -69,15 +83,21 @@ GET http://localhost:8080/acesso/usuario/{id_usuario}
 ### Criar checkins
 POST http://localhost:8080/checkin
 
+<img width="1105" height="457" alt="image" src="https://github.com/user-attachments/assets/08c0e875-01d5-404b-beb4-1bf6a005d69e" />
+
 ---
 
 ### Listar todos os checkins
 GET http://localhost:8080/checkin
 
+<img width="1110" height="808" alt="image" src="https://github.com/user-attachments/assets/b2be004e-6f15-439a-85a6-7f9b393287dd" />
+
 ---
 
 ### Listar checkins por usuário específico  
 GET http://localhost:8080/checkin/usuario/{id_usuario}
+
+<img width="1113" height="809" alt="image" src="https://github.com/user-attachments/assets/d3c456d8-f2eb-4a0c-bc40-0d16ed7aab13" />
 
 ---
 
