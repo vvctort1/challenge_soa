@@ -10,7 +10,7 @@
 
 ---
 
-## Passo a passo
+# Passo a passo
 
 1. Clonar o projeto;
 2. Configurar os dados de conexão com o MySql no arquivo application.properties;
@@ -20,7 +20,8 @@
 
 ---
 
-## ENDPOINTS USUARIO
+# ENDPOINTS
+## Usuário
 
 <h3 align="center">
  Criar usuários
@@ -82,7 +83,7 @@ DELETE http://localhost:8080/usuario/{id_usuario}
 
 ---
 
-## ENDPOINTS ACESSO
+## Acesso (logs)
 
 <h3 align="center">
 Criar acessos
@@ -117,7 +118,7 @@ GET http://localhost:8080/acesso/usuario/{id_usuario}
 
 ---
 
-## ENDPOINTS CHECKIN
+## Check-ins Diários
 
 <h3 align="center">
 Criar checkins
