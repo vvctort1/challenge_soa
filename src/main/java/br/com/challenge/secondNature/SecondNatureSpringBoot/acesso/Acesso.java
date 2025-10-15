@@ -1,7 +1,7 @@
 package br.com.challenge.secondNature.SecondNatureSpringBoot.acesso;
 
+import br.com.challenge.secondNature.SecondNatureSpringBoot.validacao.Validavel;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id_acesso")
-public class Acesso {
+public class Acesso implements Validavel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +31,16 @@ public class Acesso {
         this.data = LocalDateTime.now();
     }
 
+    @Override
+    public boolean validar() {
+        return id_usuario != null && data != null;
+    }
+
+    @Override
+    public String mensagemErro () {
+        if (id_usuario == null) return "ID do usuário é obrigatório";
+        if (data == null) return "Data é obrigatória";
+        return "Dados de acesso inválidos";
+    }
 
 }

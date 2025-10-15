@@ -1,5 +1,6 @@
-package br.com.challenge.secondNature.SecondNatureSpringBoot.checkin;
+package br.com.challenge.secondNature.SecondNatureSpringBoot.repository;
 
+import br.com.challenge.secondNature.SecondNatureSpringBoot.checkin.Checkin;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

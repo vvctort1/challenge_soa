@@ -1,8 +1,14 @@
 package br.com.challenge.secondNature.SecondNatureSpringBoot.usuario;
 
+import br.com.challenge.secondNature.SecondNatureSpringBoot.validacao.Validavel;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 @Table(name="usuarios")
 @Entity(name="Usuario")
@@ -11,7 +17,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id_usuario")
-public class Usuario {
+public class Usuario implements Validavel, UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +26,7 @@ public class Usuario {
     @Column(nullable = false, length = 100)
     String nome;
 
-    @Column(nullable = false,unique = true,length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     String email;
 
     @Column(nullable = false)
@@ -52,5 +58,57 @@ public class Usuario {
 
     public void excluir(){
         this.ativo = false;
+    }
+
+    @Override
+    public boolean validar() {
+        return nome != null && !nome.isEmpty()
+                && email != null && !email.isEmpty()
+                && senha != null && !senha.isEmpty()
+                && ativo != null;
+    }
+
+    @Override
+    public String mensagemErro() {
+        if (nome == null || nome.isEmpty()) return "Nome é obrigatório";
+        if (email == null || email.isEmpty()) return "Email é obrigatório";
+        if (senha == null || senha.isEmpty()) return "Senha é obrigatória";
+        return "Dados inválidos";
+    }
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ativo;
     }
 }

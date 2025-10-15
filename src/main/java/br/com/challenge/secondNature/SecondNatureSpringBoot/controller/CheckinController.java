@@ -1,69 +1,98 @@
 package br.com.challenge.secondNature.SecondNatureSpringBoot.controller;
 
-
-import br.com.challenge.secondNature.SecondNatureSpringBoot.checkin.Checkin;
-import br.com.challenge.secondNature.SecondNatureSpringBoot.checkin.CheckinRepository;
 import br.com.challenge.secondNature.SecondNatureSpringBoot.checkin.DadosCadastroCheckinDTO;
 import br.com.challenge.secondNature.SecondNatureSpringBoot.checkin.DadosListagemCheckinDTO;
-import br.com.challenge.secondNature.SecondNatureSpringBoot.usuario.UsuarioRepository;
-import jakarta.transaction.Transactional;
+import br.com.challenge.secondNature.SecondNatureSpringBoot.service.CheckinService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/checkin")
+@Tag(name = "3. Check-ins", description = "Registro e consulta de check-ins diários de humor")
 public class CheckinController {
 
     @Autowired
-    CheckinRepository repository;
-
-    @Autowired
-    UsuarioRepository usuarioRepository;
+    private CheckinService service;
 
     @PostMapping
-    @Transactional
-    public ResponseEntity<DadosListagemCheckinDTO> cadastrarCheckin(@RequestBody @Valid DadosCadastroCheckinDTO dados){
-        try{
-            var usuario = usuarioRepository.getReferenceById(dados.id_usuario());
-            if (!usuario.getAtivo()){
-                return ResponseEntity.badRequest().build();
-            }
-        } catch (Exception e){
+    @Operation(
+            summary = "Registrar check-in diário",
+            description = "Registra check-in com humor e nível de impulsividade. Limite de 1 check-in por dia por usuário."
+    )
+    public ResponseEntity<DadosListagemCheckinDTO> registrar(
+            @RequestBody @Valid DadosCadastroCheckinDTO dados) {
+
+        try {
+            var checkin = service.cadastrarCheckin(dados);
+            return ResponseEntity.ok(new DadosListagemCheckinDTO(checkin));
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        } catch (IllegalStateException e) {
             return ResponseEntity.badRequest().build();
         }
-
-        if (repository.jaFezCheckinHoje(dados.id_usuario())){
-            return ResponseEntity.badRequest().build();
-        }
-
-        var checkin = new Checkin(dados);
-        repository.save(checkin);
-
-        return ResponseEntity.ok(new DadosListagemCheckinDTO(checkin));
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemCheckinDTO>> listarCheckins(@PageableDefault(size = 10, sort = {"data"})Pageable paginacao){
-        var page = repository.findAll(paginacao).map(DadosListagemCheckinDTO::new);
-        return ResponseEntity.ok(page);
+    @Operation(
+            summary = "Listar todos os check-ins",
+            description = "Retorna lista paginada de todos os check-ins registrados"
+    )
+    public ResponseEntity<Page<DadosListagemCheckinDTO>> listar(
+            @Parameter(description = "Número da página")
+            @RequestParam(defaultValue = "0") int page,
+
+            @Parameter(description = "Registros por página")
+            @RequestParam(defaultValue = "15") int size) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "data"));
+        var pagina = service.listarCheckins(pageable).map(DadosListagemCheckinDTO::new);
+
+        return ResponseEntity.ok(pagina);
     }
 
-    @GetMapping("/usuario/{id_usuario}")
-    public ResponseEntity<Page<DadosListagemCheckinDTO>> listarPorUsuario(@PathVariable Long id_usuario, @PageableDefault(size = 10) Pageable paginacao){
-        var page = repository.findByIdUsuarioOrderByDataCheckinDesc(id_usuario, paginacao).map(DadosListagemCheckinDTO::new);
-        return ResponseEntity.ok(page);
+    @GetMapping("/usuario/{idUsuario}")
+    @Operation(
+            summary = "Listar check-ins por usuário",
+            description = "Retorna o histórico completo de check-ins de um usuário"
+    )
+    public ResponseEntity<Page<DadosListagemCheckinDTO>> listarPorUsuario(
+            @Parameter(description = "ID do usuário", required = true)
+            @PathVariable Long idUsuario,
+
+            @Parameter(description = "Número da página")
+            @RequestParam(defaultValue = "0") int page,
+
+            @Parameter(description = "Registros por página")
+            @RequestParam(defaultValue = "15") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        var pagina = service.listarCheckinPorUsuario(idUsuario, pageable)
+                .map(DadosListagemCheckinDTO::new);
+
+        return ResponseEntity.ok(pagina);
     }
 
-    @GetMapping("/hoje/{id_usuario}")
-    public ResponseEntity<DadosListagemCheckinDTO> checkinHoje(@PathVariable Long id_usuario){
-        var checkin = repository.findCheckinHoje(id_usuario);
+    @GetMapping("/hoje/{idUsuario}")
+    @Operation(
+            summary = "Buscar check-in de hoje",
+            description = "Retorna o check-in do dia atual do usuário, se existir"
+    )
+    public ResponseEntity<DadosListagemCheckinDTO> buscarHoje(
+            @Parameter(description = "ID do usuário", required = true)
+            @PathVariable Long idUsuario) {
 
-        return checkin.map(value -> ResponseEntity.ok(new DadosListagemCheckinDTO(value))).orElseGet(() -> ResponseEntity.notFound().build());
-
+        return service.buscarCheckinHoje(idUsuario)
+                .map(checkin -> ResponseEntity.ok(new DadosListagemCheckinDTO(checkin)))
+                .orElse(ResponseEntity.notFound().build());
     }
 }
