@@ -20,8 +20,28 @@ Second Nature
 2. Configurar os dados de conexão com o MySql no arquivo application.properties;
 3. Abrir o MySql Workbench e criar o banco de dados;
 4. Rodar o projeto;
-5. Realizar os testes utilizando comandos sql ou plataformas como Postman.
+5. Abrir no navegador (http://localhost:8080/swagger-ui.html);
+6. Utiliza o método post do usuário para criar usuário com suas credenciais;
+7. Inserir as credenciais no método post de autenticação;
+8. Copiar o token JWT no response body no método post da autenticação;
+9. Inserir o token JWT ao clicar no botão "Authorize" no início da página
+10. Confirmar no botão interno "Authorize";
+11. Agora é possível realizar todos os testes.
 
+---
+<br>
+
+<h1 align="center">
+Swagger
+</h1>
+
+<p align="center">
+<img width="600" height="600" alt="image swagger" src="https://github.com/user-attachments/assets/12a312c7-866c-4e8a-8ae6-7caa65cd9da5" /> 
+</p>
+
+<p align="center">
+<img width="600" height="600" alt="image swagger" src="https://github.com/user-attachments/assets/fe873d3a-1bbb-4de4-a274-c9758c6c921c" />
+</p>
 
 ---
 
