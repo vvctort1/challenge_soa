@@ -27,6 +27,9 @@ Second Nature
 9. Inserir o token JWT ao clicar no botão "Authorize" no início da página
 10. Confirmar no botão interno "Authorize";
 11. Agora é possível realizar todos os testes.
+<img width="600" height="600" alt="Screenshot 2025-10-14 220213" src="https://github.com/user-attachments/assets/14a06fda-6d10-49d5-9ca8-305ff644ef4c" />
+<img width="600" height="600" alt="Screenshot 2025-10-14 220236" src="https://github.com/user-attachments/assets/40cd00ed-13ef-41fc-9e6c-2ba39e884b0a" />
+<img width="600" height="600" alt="Screenshot 2025-10-14 220243" src="https://github.com/user-attachments/assets/b8d5d3f2-c8a4-4c89-a5d1-490e92c02999" />
 
 
 ---
