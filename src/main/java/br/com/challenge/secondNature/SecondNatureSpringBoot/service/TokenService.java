@@ -38,9 +38,6 @@ public class TokenService {
                 .sign(algorithm);
     }
 
-    /**
-     * Valida o token e retorna o "subject" (neste caso, o email) se for válido.
-     */
     public String validarToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
@@ -58,17 +55,11 @@ public class TokenService {
         }
     }
 
-    /**
-     * Verifica se o token é válido.
-     */
     public boolean isTokenValido(String token) {
-        // A validação é feita verificando se o método validarToken retorna um subject não vazio.
+        // A validação é feita verificando se o método validarToken retorna não vazio.
         return !validarToken(token).isEmpty();
     }
 
-    /**
-     * Extrai o ID do usuário de um token válido.
-     */
     public Long getUsuarioIdFromToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);

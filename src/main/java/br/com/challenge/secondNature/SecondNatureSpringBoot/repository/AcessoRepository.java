@@ -11,7 +11,6 @@ import java.util.List;
 
 public interface AcessoRepository extends JpaRepository<Acesso, Long> {
 
-    // Método básico do JpaRepository - deve funcionar
     Page<Acesso> findAll(Pageable paginacao);
 
     // Query para buscar por usuário
@@ -22,7 +21,7 @@ public interface AcessoRepository extends JpaRepository<Acesso, Long> {
     @Query("SELECT COUNT(a) FROM Acesso a WHERE a.usuario.id_usuario = :id_usuario")
     Long countByIdUsuario(@Param("id_usuario") Long id_usuario);
 
-    // Query para buscar acessos de hoje - CORRIGIDA
+    // Query para buscar acessos de hoje
     @Query(value = "SELECT * FROM acessos WHERE DATE(data) = CURDATE()", nativeQuery = true)
     List<Acesso> findAcessosHoje();
 

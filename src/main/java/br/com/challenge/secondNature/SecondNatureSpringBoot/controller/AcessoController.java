@@ -2,14 +2,9 @@ package br.com.challenge.secondNature.SecondNatureSpringBoot.controller;
 
 import br.com.challenge.secondNature.SecondNatureSpringBoot.acesso.DadosCadastroAcessoDTO;
 import br.com.challenge.secondNature.SecondNatureSpringBoot.acesso.DadosListagemAcessoDTO;
-import br.com.challenge.secondNature.SecondNatureSpringBoot.auth.DadosTokenDTO;
 import br.com.challenge.secondNature.SecondNatureSpringBoot.service.AcessoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
