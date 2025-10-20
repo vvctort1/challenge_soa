@@ -65,5 +65,15 @@ Arquitetura
 </h3>
 <p align='center'>
 <img width="954" height="341" alt="image" src="https://github.com/user-attachments/assets/6043e81a-aacc-48ff-8a5d-f19b86358f8b" />
-
 </p>
+
+
+## Integrantes
+
+| Nome | RM | Turma |
+| :--- | :--- | :--- |
+| Arthur Baldissera Claumann Marcos | 550219 | 3ESPF |
+| Gabriel Genaro Dalaqua | 551986 | 3ESPF |
+| Paloma Mirela dos Santos Rodrigues | 551321 | 3ESPF |
+| Ricardo Ramos Vergani | 550166 | 3ESPF |
+| Victor Kenzo Toma | 551649 | 3ESPF |
