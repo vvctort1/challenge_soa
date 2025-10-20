@@ -66,5 +66,4 @@ Arquitetura
 <p align='center'>
 <img width="954" height="341" alt="image" src="https://github.com/user-attachments/assets/6043e81a-aacc-48ff-8a5d-f19b86358f8b" />
 
-" />
 </p>
